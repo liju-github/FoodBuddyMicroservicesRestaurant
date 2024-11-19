@@ -25,6 +25,13 @@ type RestaurantService struct {
 	JWTSecret string
 }
 
+type CustomClaims struct {
+	ID    string `json:"id"`
+	Email string `json:"email"`
+	Role  string `json:"role"`
+	jwt.RegisteredClaims
+}
+
 func NewRestaurantService(repo repository.RestaurantRepository) *RestaurantService {
 	return &RestaurantService{
 		repo:      repo,
@@ -382,12 +389,15 @@ func (s *RestaurantService) UnbanRestaurant(ctx context.Context, req *restaurant
 }
 
 func (s *RestaurantService) generateToken(restaurantID, email string) (string, error) {
-	claims := jwt.MapClaims{
-		"id":    restaurantID,
-		"email": email,
-		"exp":   time.Now().Add(TokenExpiry).Unix(),
+	claims := CustomClaims{
+		ID:    restaurantID,
+		Email: email,
+		Role:  "restaurant",
+		RegisteredClaims: jwt.RegisteredClaims{
+			ExpiresAt: jwt.NewNumericDate(time.Now().Add(TokenExpiry)),
+		},
 	}
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
-	return token.SignedString(s.JWTSecret)
+	return token.SignedString([]byte(s.JWTSecret))
 }
