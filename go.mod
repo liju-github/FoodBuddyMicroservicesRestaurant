@@ -3,10 +3,9 @@ module github.com/liju-github/FoodBuddyMicroserviceRestaurant
 go 1.22.7
 
 require (
-	github.com/golang-jwt/jwt/v5 v5.2.1
 	github.com/google/uuid v1.6.0
 	github.com/joho/godotenv v1.5.1
-	github.com/liju-github/CentralisedFoodbuddyMicroserviceProto v0.0.0-20241119140226-f3a60483f8a6
+	github.com/liju-github/CentralisedFoodbuddyMicroserviceProto v0.0.0-20241121090856-6e2a00fc71e2
 	golang.org/x/crypto v0.29.0
 	google.golang.org/grpc v1.68.0
 	gorm.io/driver/mysql v1.5.7
