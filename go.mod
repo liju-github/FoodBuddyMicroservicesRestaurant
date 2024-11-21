@@ -5,7 +5,7 @@ go 1.22.7
 require (
 	github.com/google/uuid v1.6.0
 	github.com/joho/godotenv v1.5.1
-	github.com/liju-github/CentralisedFoodbuddyMicroserviceProto v0.0.0-20241121090856-6e2a00fc71e2
+	github.com/liju-github/CentralisedFoodbuddyMicroserviceProto v0.0.0-20241121112106-cb7866503640
 	golang.org/x/crypto v0.29.0
 	google.golang.org/grpc v1.68.0
 	gorm.io/driver/mysql v1.5.7

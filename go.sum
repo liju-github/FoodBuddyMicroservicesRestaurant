@@ -26,6 +26,8 @@ github.com/liju-github/CentralisedFoodbuddyMicroserviceProto v0.0.0-202411210808
 github.com/liju-github/CentralisedFoodbuddyMicroserviceProto v0.0.0-20241121080836-509902dd6b8f/go.mod h1:dpPEGIIrIGU4SXEzvxljlMquVn5+6uef6E/IXjBiyVk=
 github.com/liju-github/CentralisedFoodbuddyMicroserviceProto v0.0.0-20241121090856-6e2a00fc71e2 h1:ptbt3RvXcjZRqnkGa/3D4Qx/j30OIlBLjwMW0LZWmE8=
 github.com/liju-github/CentralisedFoodbuddyMicroserviceProto v0.0.0-20241121090856-6e2a00fc71e2/go.mod h1:dpPEGIIrIGU4SXEzvxljlMquVn5+6uef6E/IXjBiyVk=
+github.com/liju-github/CentralisedFoodbuddyMicroserviceProto v0.0.0-20241121112106-cb7866503640 h1:OZfDB24GJmzUlWG7jmACz4BcW6Spt43YNshd64a92p0=
+github.com/liju-github/CentralisedFoodbuddyMicroserviceProto v0.0.0-20241121112106-cb7866503640/go.mod h1:dpPEGIIrIGU4SXEzvxljlMquVn5+6uef6E/IXjBiyVk=
 golang.org/x/crypto v0.29.0 h1:L5SG1JTTXupVV3n6sUqMTeWbjAyfPwoda2DLX8J8FrQ=
 golang.org/x/crypto v0.29.0/go.mod h1:+F4F4N5hv6v38hfeYwTdx20oUvLLc+QfrE9Ax9HtgRg=
 golang.org/x/net v0.29.0 h1:5ORfpBpCs4HzDYoodCDBbwHzdR5UrLBZ3sOnUJmFoHo=

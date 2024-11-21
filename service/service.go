@@ -330,3 +330,28 @@ func (s *RestaurantService) UnbanRestaurant(ctx context.Context, req *restaurant
 		Message: "Restaurant unbanned successfully",
 	}, nil
 }
+
+func (s *RestaurantService) GetAllProducts(ctx context.Context, req *restaurantPb.GetAllProductsRequest) (*restaurantPb.GetAllProductsResponse, error) {
+	products, err := s.repo.GetAllProducts()
+	if err != nil {
+		return nil, err
+	}
+
+	var pbProducts []*restaurantPb.Product
+	for _, product := range products {
+		pbProducts = append(pbProducts, &restaurantPb.Product{
+			ProductId:    product.ID,
+			RestaurantId: product.RestaurantID,
+			Name:         product.Name,
+			Description:  product.Description,
+			Price:        product.Price,
+			Stock:        product.Stock,
+			Category:     product.Category,
+		})
+	}
+
+	return &restaurantPb.GetAllProductsResponse{
+		Products: pbProducts,
+		Message:  "All products retrieved successfully",
+	}, nil
+}
