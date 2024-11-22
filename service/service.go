@@ -355,3 +355,49 @@ func (s *RestaurantService) GetAllProducts(ctx context.Context, req *restaurantP
 		Message:  "All products retrieved successfully",
 	}, nil
 }
+
+func (s *RestaurantService) CheckRestaurantBanStatus(ctx context.Context, req *restaurantPb.CheckRestaurantBanStatusRequest) (*restaurantPb.CheckRestaurantBanStatusResponse, error) {
+	restaurant, err := s.repo.GetRestaurantByID(req.RestaurantId)
+	if err != nil {
+		return nil, fmt.Errorf("failed to get restaurant: %v", err)
+	}
+
+	if restaurant == nil {
+		return &restaurantPb.CheckRestaurantBanStatusResponse{
+			IsBanned: false,
+			Message:  "Restaurant not found",
+		}, nil
+	}
+
+	return &restaurantPb.CheckRestaurantBanStatusResponse{
+		IsBanned: restaurant.IsBanned,
+		Reason:   restaurant.BanReason,
+		Message:  "Ban status retrieved successfully",
+	}, nil
+}
+
+func (s *RestaurantService) GetRestaurantByID(ctx context.Context, req *restaurantPb.GetRestaurantByIDRequest) (*restaurantPb.GetRestaurantByIDResponse, error) {
+	restaurant, err := s.repo.GetRestaurantByID(req.RestaurantId)
+	if err != nil {
+		return &restaurantPb.GetRestaurantByIDResponse{
+			Success: false,
+			Message: fmt.Sprintf("Failed to get restaurant: %v", err),
+		}, nil
+	}
+
+	return &restaurantPb.GetRestaurantByIDResponse{
+		Success:        true,
+		Message:        "Restaurant found successfully",
+		RestaurantId:   restaurant.ID,
+		RestaurantName: restaurant.Name,
+		PhoneNumber:    restaurant.PhoneNumber,
+		Address: &restaurantPb.Address{
+			StreetName: restaurant.StreetName,
+			Locality:   restaurant.Locality,
+			State:      restaurant.State,
+			Pincode:    restaurant.Pincode,
+		},
+		IsBanned:  restaurant.IsBanned,
+		BanReason: restaurant.BanReason,
+	}, nil
+}

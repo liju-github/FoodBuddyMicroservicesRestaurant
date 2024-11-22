@@ -1,7 +1,7 @@
 package model
 
 type Restaurant struct {
-	ID           string `gorm:"column:id" json:"id"`
+	ID           string `gorm:"column:id;size:100" json:"id"`
 	OwnerEmail   string `gorm:"column:owner_email" json:"ownerEmail"`
 	PasswordHash string `gorm:"column:password_hash" json:"passwordHash"`
 	Name         string `gorm:"column:name" json:"name"`
@@ -15,8 +15,8 @@ type Restaurant struct {
 }
 
 type Product struct {
-	ID           string  `gorm:"column:id" json:"id"`
-	RestaurantID string  `gorm:"column:restaurant_id" json:"restaurantId"`
+	ID           string  `gorm:"column:id;size:50" json:"id"`
+	RestaurantID string  `gorm:"column:restaurant_id;size:50" json:"restaurantId"`
 	Name         string  `gorm:"column:name" json:"name"`
 	Description  string  `gorm:"column:description" json:"description"`
 	Price        float64 `gorm:"column:price" json:"price"`
